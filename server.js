@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body); //from post in app.js
+  console.log( 'anything?: ', req.body); //from post in app.js
 
 
   const accessToken = oAuth2Client.getAccessToken();
