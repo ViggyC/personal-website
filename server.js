@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
      res.sendFile(__dirname +'/index.html');
 });
 
-/*app.post("/", (req, res) => {
+app.post("/", (req, res) => {
   console.log(req.body); //from post in app.js
 
 
@@ -66,7 +66,7 @@ app.get("/", (req, res) => {
       res.send("success");
     }
   });
-});*/
+});
 
 app.listen(PORT, () => {
   console.log("Server running on port 5000");
