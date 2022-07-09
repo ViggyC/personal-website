@@ -1,6 +1,6 @@
 # Portfolio 
 
-Personal Website
+Personal Website: https://vigneshchandrasekhar.com
 
 ## Description
 
@@ -8,8 +8,24 @@ This is the code repository for my personal website.
 
 Built with HTML, CSS, JavaScript
 
-Uses Google OAuth2for gmail verificaiton
+Migrating to Angular soon
 
-Deployed on ```https://fly.io/```
+## Run Locally
+
+Run ```git clone https://github.com/ViggyC/personal-website.git```
+
+Install dependencies: ```npm init```
+
+Run ```npm run dev```
+
+## Notes
+
+Uses Google OAuth2.0 for gmail verificaiton
+
+Currently deployed on ```https://fly.io/```
+
+Formerly deployed on AWS Elastic Beanstalk
+
+Domain purchased via AWS Route 53
 
 
