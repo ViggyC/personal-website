@@ -8,7 +8,7 @@ This is the code repository for my personal website.
 
 Built with HTML, CSS, JavaScript
 
-Migrating to Angular soon
+Migrating to Angular soon!
 
 ## Run Locally
 
