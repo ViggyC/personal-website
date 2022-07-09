@@ -145,11 +145,12 @@ function scrollActive() {
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .querySelector(".nav_menu a[href*=" + sectionId + "]")
         .classList.add("active-link");
+        console.log("Whao somehting is happening")
     } else {
       document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .querySelector(".nav_menu a[href*=" + sectionId + "]")
         .classList.remove("active-link");
     }
   });
@@ -217,8 +218,6 @@ let email = document.getElementById("email");
 let subject = document.getElementById("subject");
 let message = document.getElementById("message");
 
-console.log(name, email, subject, message);
-
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -229,7 +228,7 @@ contactForm.addEventListener("submit", (e) => {
     message: message.value,
   };
 
-  console.log('from data: ' , formData);
+  console.log('form data: ' , formData);
 
   //ajax
   let xhr = new XMLHttpRequest();
