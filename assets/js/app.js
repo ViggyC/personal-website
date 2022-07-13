@@ -282,12 +282,21 @@ contactForm.addEventListener("submit", (e) => {
 //     }
 //     form.addEventListener("submit", handleSubmit)
 
-let quoteKanye = document.getElementById("kanye");
-let author = "Kanye West";
-fetch("https://api.kanye.rest")
-  .then((res) => res.json())
-  .then((quote) => {
-    quoteKanye.innerHTML += ` "${quote.quote}"<br/>`;
-    quoteKanye.innerHTML += `                - ${author}`;
-    console.log(quote.quote);
-  });
+
+
+
+async function fetchMoviesJSON() {
+  let quote = document.getElementById("inspoquote");
+  var quoteAuthor = document.getElementById("qAuthor");
+  const res = await fetch('https://type.fit/api/quotes');
+  var data = await res.json()
+  console.log(data)
+  var numQuotes = data.length;
+  var randomQuote  = Math.floor(Math.random() * numQuotes); 
+  quote.innerHTML = ' " ' + data[randomQuote].text + ' " ';
+  quoteAuthor.innerHTML = ' -' + data[randomQuote].author;
+  console.log(quote, quoteAuthor)
+}
+
+fetchMoviesJSON()
+ 

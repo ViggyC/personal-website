@@ -425,11 +425,21 @@ img {
   justify-content: center;
 }
 
-.kanye_quote{
-  margin-top: 2rem;
+
+.quoteSection{
+  margin-top: 4rem;
+  padding: 2rem 0;
+
   text-align: center;
+}
+
+.quoteSection:hover {
+  font-weight: 900;
+}
+
+.inspoquote{
   font-style: italic;
-  margin-bottom: 0px;
+
 }
 
 /* SKILLS */

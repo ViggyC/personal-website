@@ -1,7 +1,7 @@
 /* eslint-env node */
 require("dotenv").config();
 const express = require("express");
-const axios = require('axios')
+const axios = require("axios");
 const app = express();
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.static("assets"));
 app.use(express.json());
-
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -27,15 +26,16 @@ oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
-  
-
-     //res.render(__dirname + "index.html");
-     res.sendFile(__dirname +'/index.html');
+  //res.render(__dirname + "index.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.post("/", (req, res) => {
-  console.log( 'anything?: ', req.body); //from post in app.js
+  console.log("anything?: ", req.body); //from post in app.js
 
+  if (req.body === null) {
+    console.log("Empty form.....");
+  }
 
   const accessToken = oAuth2Client.getAccessToken();
   const transporter = nodemailer.createTransport({
@@ -57,15 +57,17 @@ app.post("/", (req, res) => {
     text: `${req.body.message} \n\n From: ${req.body.name}`,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.send("error");
-    } else {
-      console.log("Email sent :) -Vignesh " + info.response);
-      res.send("success");
-    }
-  });
+  if (!(req.body === null)) {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.send("error");
+      } else {
+        console.log("Email sent :) -Vignesh " + info.response);
+        res.send("success");
+      }
+    });
+  }
 });
 
 app.listen(PORT, () => {
